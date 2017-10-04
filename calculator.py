@@ -24,7 +24,7 @@ def convert_nums_to_float(input_list):
     Takes index 1 on and converts all to floats, leaves index 0 as string"""
     float_list = [input_list[0]]
 
-    for item in range(1,len(input_list)):
+    for item in range(1, len(input_list)):
         float_list.append(float(input_list[item]))
 
     return float_list
@@ -41,7 +41,7 @@ def which_calc_type(input_list):
     if input_list[0] == "+":
         answer = add(input_list[1], input_list[2])
     elif input_list[0] == "-":
-        answer = subtract(input_list[1], input_list[2]) 
+        answer = subtract(input_list[1], input_list[2])
     elif input_list[0] == "*":
         answer = multiply(input_list[1], input_list[2])
     elif input_list[0] == "/":
@@ -63,6 +63,9 @@ def which_calc_type(input_list):
     return answer
 
 
-calc_list = input_calc()
-
-print which_calc_type(calc_list)
+while True:
+    calc_list = input_calc()
+    calc_answer = which_calc_type(calc_list)
+    if calc_answer is None:
+        break
+    print calc_answer
